@@ -1,0 +1,119 @@
+[
+  {
+    "t_utc": "2026-11-23T21:57:58+00:00",
+    "evento": "inicio",
+    "semilla": 42,
+    "modo_rapido": false
+  },
+  {
+    "t_utc": "2026-11-23T21:58:11+00:00",
+    "evento": "carga_dataset",
+    "fuente": "scikit-learn load_breast_cancer (copia del WDBC de UCI)",
+    "sha256": "698f9064cb3927973dd96ee9f3950e3103f64ff87b0e84898a09b567e792fd02",
+    "coincide": true
+  },
+  {
+    "t_utc": "2026-11-23T21:58:29+00:00",
+    "evento": "perfil_datos",
+    "n_filas": 569,
+    "nulos_totales": 0,
+    "duplicados_exactos": 0,
+    "grupos_en_conflicto": 0,
+    "valores_negativos": 0,
+    "prevalencia_malignos": 0.37258347978910367,
+    "n_vif_mayor_10": 23,
+    "n_pares_corr_mayor_095": 15
+  },
+  {
+    "t_utc": "2026-11-23T21:58:38+00:00",
+    "evento": "pre_registro",
+    "sha256": "be130d2b1d82148c731628af06a06cbcb34e5bf6808010882c3bf5fb14e8098f"
+  },
+  {
+    "t_utc": "2026-11-23T21:58:44+00:00",
+    "evento": "particion",
+    "n_train": 455,
+    "n_test": 114,
+    "huella_test": "f2d2227d00421e3196cd0c6112e1017def8790f0e3a8a0798f8f8608460cb08f"
+  },
+  {
+    "t_utc": "2026-11-23T21:58:50+00:00",
+    "evento": "cv_definida",
+    "n_particiones": 15,
+    "sin_fuga": true
+  },
+  {
+    "t_utc": "2026-11-23T21:59:01+00:00",
+    "evento": "exploracion_estructura",
+    "ari": 0.6622066991321112,
+    "concordancia": 0.9076923076923077
+  },
+  {
+    "t_utc": "2026-11-23T21:59:07+00:00",
+    "evento": "modelos_definidos",
+    "modelos": [
+      "Dummy (prior)",
+      "Regresión logística",
+      "SVM (RBF)",
+      "Random Forest",
+      "HistGB"
+    ],
+    "orden": [
+      "Regresión logística",
+      "SVM (RBF)",
+      "Random Forest",
+      "HistGB"
+    ]
+  },
+  {
+    "t_utc": "2026-11-23T21:59:34+00:00",
+    "evento": "cv_repetida",
+    "mejor_complejo": "SVM (RBF)"
+  },
+  {
+    "t_utc": "2026-11-23T21:59:42+00:00",
+    "evento": "curvas_aprendizaje"
+  },
+  {
+    "t_utc": "2026-11-23T22:02:14+00:00",
+    "evento": "busqueda_y_cv_anidada",
+    "seleccionada": "Regresión logística"
+  },
+  {
+    "t_utc": "2026-11-23T22:04:31+00:00",
+    "evento": "umbral_y_calibracion",
+    "umbral": 0.2744905639006569,
+    "sens_oof": 0.9705882352941176,
+    "espec_oof": 0.9543859649122807
+  },
+  {
+    "t_utc": "2026-11-23T22:04:40+00:00",
+    "evento": "boveda_abierta",
+    "modelos": [
+      "Dummy (prior)",
+      "Regresión logística",
+      "SVM (RBF)",
+      "Random Forest",
+      "HistGB"
+    ]
+  },
+  {
+    "t_utc": "2026-11-23T22:05:14+00:00",
+    "evento": "evaluacion_test",
+    "veredicto": true,
+    "robusto": false
+  },
+  {
+    "t_utc": "2026-11-23T22:05:31+00:00",
+    "evento": "errores_y_prevalencia",
+    "falsos_negativos": 1,
+    "falsos_positivos": 1,
+    "inciertos": 9
+  },
+  {
+    "t_utc": "2026-11-23T22:06:02+00:00",
+    "evento": "interpretabilidad",
+    "coef_inestables": 10,
+    "shap": true
+  }
+]

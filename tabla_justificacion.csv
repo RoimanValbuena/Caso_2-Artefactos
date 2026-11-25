@@ -1,0 +1,6 @@
+Modelo,Rol,¿Por qué?,Fortaleza,Riesgo
+Dummy (prior),Línea base trivial,"Fija el piso: lo que se logra sin aprender (AUC = 0,5)",Ninguna,No sirve para decidir
+Regresión logística,Línea base simple (1.º en complejidad),Interpretable; probabilidades bien calibradas por construcción; rápida,Colinealidad entre medidas (inestabilidad de coeficientes),Frontera lineal
+SVM (RBF),Alternativa no lineal suave (2.º),Buena con pocas muestras y muchas variables,Sensible a escala y a gamma/C,Probabilidades vía Platt (aproximadas)
+Random Forest,Ensamble no lineal (3.º),Robusto; capta interacciones; poco sensible a escala,Probabilidades poco calibradas,Menos estable con pocos casos
+HistGB,"Boosting (4.º, el más complejo)",Alta flexibilidad,Muchos hiperparámetros,Sobreajuste con n pequeño

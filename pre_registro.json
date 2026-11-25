@@ -1,0 +1,78 @@
+{
+  "clase_positiva": "maligno (1)",
+  "criterios_de_aceptacion": {
+    "C1_sensibilidad": {
+      "minimo": 0.95,
+      "regla": "sensibilidad_test >= minimo"
+    },
+    "C2_especificidad": {
+      "minimo": 0.9,
+      "regla": "especificidad_test >= minimo"
+    },
+    "C3_calibracion": {
+      "maximo": 0.05,
+      "regla": "Brier_test <= maximo"
+    },
+    "C4_estabilidad": {
+      "cv_max_pct": 2.0,
+      "regla": "CV% del AUC entre folds externos (CV anidada) <= maximo"
+    }
+  },
+  "familias_candidatas": [
+    "Regresión logística",
+    "SVM (RBF)",
+    "Random Forest",
+    "HistGB"
+  ],
+  "fecha_utc": "2026-11-23T21:58:38+00:00",
+  "hipotesis": {
+    "H0": "El modelo seleccionado no cumple simultaneamente C1-C4.",
+    "H1": "El modelo seleccionado cumple sensibilidad, especificidad, calibracion y estabilidad."
+  },
+  "huella_datos_sha256": "698f9064cb3927973dd96ee9f3950e3103f64ff87b0e84898a09b567e792fd02",
+  "metricas": {
+    "primarias": [
+      "sensibilidad",
+      "especificidad"
+    ],
+    "secundarias": [
+      "VPP",
+      "VPN",
+      "exactitud balanceada",
+      "F1",
+      "MCC"
+    ],
+    "umbral_independientes": [
+      "AUC-ROC",
+      "PR-AUC",
+      "Brier"
+    ]
+  },
+  "modelos_a_evaluar_en_test": [
+    "Dummy (prior)",
+    "Regresión logística",
+    "SVM (RBF)",
+    "Random Forest",
+    "HistGB"
+  ],
+  "plan_estadistico": {
+    "comparacion_de_modelos": "bootstrap pareado sobre filas (no t-test sobre folds)",
+    "intervalos": "bootstrap percentil 95% (B=2000); Clopper-Pearson exacto para sensibilidad y especificidad",
+    "validacion": "CV estratificada repetida 3x5 + CV anidada por familia"
+  },
+  "pregunta_investigacion": "Discriminar maligno vs benigno con 30 medidas nucleares, con sensibilidad y especificidad aceptables e incertidumbre cuantificada; decidir si la complejidad se justifica.",
+  "protocolo_datos": {
+    "particion": "estratificada por clase",
+    "semilla": 42,
+    "test_sellado": "una sola evaluacion de la lista cerrada de modelos",
+    "test_size": 0.2
+  },
+  "regla_de_parsimonia": "Elegir la familia mas simple (en el orden declarado) cuyo AUC anidado medio >= mejor AUC anidado medio - EE del mejor.",
+  "regla_del_umbral": {
+    "descripcion": "Maximizar especificidad sujeto a sensibilidad OOF >= objetivo; usando solo entrenamiento",
+    "sens_objetivo_oof": 0.97
+  },
+  "tipo_problema": "clasificacion binaria supervisada",
+  "titulo": "Caso 6.2 - Clasificacion citologica maligno/benigno (WDBC)",
+  "variables_predictoras": "30 medidas nucleares (media, error estandar, peor valor de 10 medidas base)"
+}

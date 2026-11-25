@@ -1,0 +1,357 @@
+{
+  "inicio_utc": "2026-11-23T21:57:58+00:00",
+  "python": "3.13.18",
+  "plataforma": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "en_colab": true,
+  "librerias": {
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "scikit-learn": "1.6.1",
+    "matplotlib": "3.10.0"
+  },
+  "semilla": 42,
+  "modo_rapido": false,
+  "parametros": {
+    "test_size": 0.2,
+    "n_splits": 5,
+    "n_repeats": 3,
+    "n_boot": 2000,
+    "n_iter_busqueda": 12,
+    "n_iter_anidada": 8
+  },
+  "datos_origen": {
+    "fuente": "scikit-learn load_breast_cancer (copia del WDBC de UCI)",
+    "clases_sklearn": [
+      "malignant",
+      "benign"
+    ],
+    "codificacion_sklearn": "0 = maligno, 1 = benigno",
+    "sha256": "698f9064cb3927973dd96ee9f3950e3103f64ff87b0e84898a09b567e792fd02",
+    "n_filas": 569,
+    "malignos": 212,
+    "benignos": 357,
+    "coincide_con_documentacion": true
+  },
+  "perfil": {
+    "n_filas": 569,
+    "nulos_totales": 0,
+    "duplicados_exactos": 0,
+    "grupos_en_conflicto": 0,
+    "valores_negativos": 0,
+    "prevalencia_malignos": 0.37258347978910367,
+    "n_vif_mayor_10": 23,
+    "n_pares_corr_mayor_095": 15
+  },
+  "pre_registro": {
+    "sha256": "be130d2b1d82148c731628af06a06cbcb34e5bf6808010882c3bf5fb14e8098f",
+    "fecha_utc": "2026-11-23T21:58:38+00:00"
+  },
+  "particion": {
+    "n_train": 455,
+    "n_test": 114,
+    "prevalencia_train": 0.37362637362637363,
+    "prevalencia_test": 0.3684210526315789,
+    "huella_indices_train": "77d3b8386b0acc0527d0bc3ab701d0a195e6f6aa92cee6a7e9ce1342ca28ce4a",
+    "huella_indices_test": "f2d2227d00421e3196cd0c6112e1017def8790f0e3a8a0798f8f8608460cb08f",
+    "semilla": 42
+  },
+  "fin_utc": "2026-11-23T22:06:19+00:00",
+  "uso_boveda": {
+    "usos": 1,
+    "primer_uso_utc": "2026-11-23T22:04:40.567290+00:00"
+  },
+  "resultados": {
+    "clustering_vs_clasificacion": {
+      "ari": 0.6622066991321112,
+      "concordancia": 0.9076923076923077,
+      "silueta": 0.3432356203274449
+    },
+    "cv_inicial": {
+      "Dummy (prior)": {
+        "auc_media": 0.5,
+        "auc_sd": 0.0,
+        "brier_media": 0.23402970655717908
+      },
+      "Regresión logística": {
+        "auc_media": 0.9931888544891642,
+        "auc_sd": 0.00855949015088391,
+        "brier_media": 0.02171199793822006
+      },
+      "SVM (RBF)": {
+        "auc_media": 0.9934296525627795,
+        "auc_sd": 0.00529265706182965,
+        "brier_media": 0.02486790958068247
+      },
+      "Random Forest": {
+        "auc_media": 0.9872205022359822,
+        "auc_sd": 0.009369911599624225,
+        "brier_media": 0.033786135531135526
+      },
+      "HistGB": {
+        "auc_media": 0.9919848641210872,
+        "auc_sd": 0.0071760450276024,
+        "brier_media": 0.02862744776117348
+      }
+    },
+    "anidada": {
+      "Regresión logística": {
+        "auc_anidado": 0.9943240454076367,
+        "ee": 0.0023645901418760536,
+        "cv_pct": 0.5317566562511411,
+        "auc_busqueda_optimista": 0.9951496388028896,
+        "params": {
+          "modelo__C": 0.9846738873614566
+        }
+      },
+      "SVM (RBF)": {
+        "auc_anidado": 0.9919504643962849,
+        "ee": 0.0028941803224726862,
+        "cv_pct": 0.6524099914737059,
+        "auc_busqueda_optimista": 0.9950464396284829,
+        "params": {
+          "modelo__C": 213.6832907235874,
+          "modelo__gamma": 0.0004335281794951569
+        }
+      },
+      "Random Forest": {
+        "auc_anidado": 0.9869969040247678,
+        "ee": 0.0044735681545860625,
+        "cv_pct": 1.013498872675461,
+        "auc_busqueda_optimista": 0.9865841073271413,
+        "params": {
+          "modelo__min_samples_leaf": 2,
+          "modelo__max_features": "sqrt",
+          "modelo__max_depth": 8
+        }
+      },
+      "HistGB": {
+        "auc_anidado": 0.9893704850361196,
+        "ee": 0.0040649210301818535,
+        "cv_pct": 0.9187094100874925,
+        "auc_busqueda_optimista": 0.9931888544891642,
+        "params": {
+          "modelo__l2_regularization": 0.03148911647956861,
+          "modelo__learning_rate": 0.262516606324193,
+          "modelo__max_iter": 300,
+          "modelo__max_leaf_nodes": 4,
+          "modelo__min_samples_leaf": 5
+        }
+      }
+    },
+    "seleccion": {
+      "familia": "Regresión logística",
+      "mejor_anidada": "Regresión logística",
+      "corte": 0.9919594552657607
+    },
+    "preliminar": {
+      "umbral": 0.2744905639006569,
+      "sens_oof": 0.9705882352941176,
+      "espec_oof": 0.9543859649122807,
+      "ece_oof": 0.04126992902055856,
+      "dif_auc_media": null,
+      "dif_auc_ic": null
+    },
+    "test": {
+      "metricas": {
+        "Dummy (prior)": {
+          "AUC": 0.5,
+          "AP": 0.3684210526315789,
+          "Brier": 0.23271407597607716,
+          "Sens": 1.0,
+          "Espec": 0.0,
+          "VPP": 0.3684210526315789,
+          "VPN": NaN,
+          "BAcc": 0.5,
+          "F1": 0.5384615384615384,
+          "MCC": NaN,
+          "Exactitud": 0.3684210526315789
+        },
+        "Regresión logística": {
+          "AUC": 0.996031746031746,
+          "AP": 0.994273631904294,
+          "Brier": 0.0212298646147059,
+          "Sens": 0.9761904761904762,
+          "Espec": 0.9861111111111112,
+          "VPP": 0.9761904761904762,
+          "VPN": 0.9861111111111112,
+          "BAcc": 0.9811507936507937,
+          "F1": 0.9761904761904762,
+          "MCC": 0.9623015873015873,
+          "Exactitud": 0.9824561403508771
+        },
+        "SVM (RBF)": {
+          "AUC": 0.996362433862434,
+          "AP": 0.9948543519972093,
+          "Brier": 0.02215664761079716,
+          "Sens": 0.9761904761904762,
+          "Espec": 0.9722222222222222,
+          "VPP": 0.9534883720930233,
+          "VPN": 0.9859154929577465,
+          "BAcc": 0.9742063492063492,
+          "F1": 0.9647058823529412,
+          "MCC": 0.9438975339262832,
+          "Exactitud": 0.9736842105263158
+        },
+        "Random Forest": {
+          "AUC": 0.9966931216931217,
+          "AP": 0.9947099084637079,
+          "Brier": 0.030064445776779643,
+          "Sens": 0.9523809523809523,
+          "Espec": 0.9722222222222222,
+          "VPP": 0.9523809523809523,
+          "VPN": 0.9722222222222222,
+          "BAcc": 0.9623015873015872,
+          "F1": 0.9523809523809523,
+          "MCC": 0.9246031746031746,
+          "Exactitud": 0.9649122807017544
+        },
+        "HistGB": {
+          "AUC": 0.9914021164021163,
+          "AP": 0.9908963585434174,
+          "Brier": 0.025982805323936937,
+          "Sens": 0.9285714285714286,
+          "Espec": 1.0,
+          "VPP": 1.0,
+          "VPN": 0.96,
+          "BAcc": 0.9642857142857143,
+          "F1": 0.9629629629629629,
+          "MCC": 0.9441549509633318,
+          "Exactitud": 0.9736842105263158
+        }
+      },
+      "umbral": 0.2744905639006569,
+      "n_test": 114,
+      "n_pos_test": 42,
+      "ic_auc": {
+        "Dummy (prior)": [
+          0.5,
+          0.5
+        ],
+        "Regresión logística": [
+          0.986109387923904,
+          1.0
+        ],
+        "SVM (RBF)": [
+          0.986841660739687,
+          1.0
+        ],
+        "Random Forest": [
+          0.9894010416666666,
+          1.0
+        ],
+        "HistGB": [
+          0.9692270531400966,
+          1.0
+        ]
+      },
+      "ic_sens_exacto": [
+        0.8743414428250074,
+        0.9993973766983499
+      ],
+      "ic_espec_exacto": [
+        0.9250286891460809,
+        0.9996484255949444
+      ],
+      "criterios": [
+        {
+          "criterio": "C1 Sensibilidad",
+          "umbral": "≥ 0.95",
+          "valor": "0.976 [0.874, 0.999]",
+          "cumple": true,
+          "ic_cumple": false
+        },
+        {
+          "criterio": "C2 Especificidad",
+          "umbral": "≥ 0.90",
+          "valor": "0.986 [0.925, 1.000]",
+          "cumple": true,
+          "ic_cumple": true
+        },
+        {
+          "criterio": "C3 Calibración (Brier)",
+          "umbral": "≤ 0.05",
+          "valor": "0.0212 [0.0063, 0.0437]",
+          "cumple": true,
+          "ic_cumple": true
+        },
+        {
+          "criterio": "C4 Estabilidad (CV% AUC anidada)",
+          "umbral": "≤ 2%",
+          "valor": "0.53%",
+          "cumple": true,
+          "ic_cumple": true
+        }
+      ],
+      "veredicto_global": true,
+      "robusto": false
+    },
+    "errores": {
+      "falsos_negativos": 1,
+      "falsos_positivos": 1,
+      "inciertos": 9
+    },
+    "vpp_prevalencia": [
+      {
+        "Prevalencia": "37.0%",
+        "VPP": 0.976,
+        "VPN": 0.986,
+        "Falsos positivos por cada verdadero positivo": 0.02
+      },
+      {
+        "Prevalencia": "10.0%",
+        "VPP": 0.886,
+        "VPN": 0.9973,
+        "Falsos positivos por cada verdadero positivo": 0.13
+      },
+      {
+        "Prevalencia": "5.0%",
+        "VPP": 0.787,
+        "VPN": 0.9987,
+        "Falsos positivos por cada verdadero positivo": 0.27
+      },
+      {
+        "Prevalencia": "1.0%",
+        "VPP": 0.415,
+        "VPN": 0.9998,
+        "Falsos positivos por cada verdadero positivo": 1.41
+      },
+      {
+        "Prevalencia": "0.1%",
+        "VPP": 0.066,
+        "VPN": 1.0,
+        "Falsos positivos por cada verdadero positivo": 14.21
+      }
+    ],
+    "interpretabilidad": {
+      "coef_inestables": 10,
+      "permutacion_variable_top": {
+        "worst symmetry": 0.01008597883597886,
+        "worst texture": 0.00987654320987655,
+        "worst concavity": 0.007605820105820134,
+        "worst concave points": 0.0029431216931217084,
+        "mean concave points": 0.0029210758377425225
+      },
+      "permutacion_grupo": {
+        "concave points": 0.021362433862433878,
+        "concavity": 0.019168871252204588,
+        "texture": 0.017283950617283963,
+        "radius": 0.014902998236331573,
+        "area": 0.010493827160493845,
+        "perimeter": 0.006900352733686088,
+        "symmetry": 0.005676807760141097,
+        "smoothness": 0.0028439153439153634,
+        "compactness": 0.0024140211640211852,
+        "fractal dimension": 0.0004188712522046038
+      },
+      "shap_disponible": true
+    }
+  },
+  "tiempos_cv_seg": {
+    "Dummy (prior)": 6.511316299438477,
+    "Regresión logística": 0.6425623893737793,
+    "SVM (RBF)": 0.829540491104126,
+    "Random Forest": 7.480769395828247,
+    "HistGB": 5.238301515579224
+  }
+}
